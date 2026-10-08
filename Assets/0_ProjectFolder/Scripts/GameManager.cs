@@ -1,7 +1,9 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float enemySpawnTime, currentTime;
     private int spawnedEnemies;
+    private const string MAIN_MENU = "Scene_MainMenu";
     
     public event Action onGameOverEvent;
     public static GameManager instance; 
@@ -122,5 +125,12 @@ public class GameManager : MonoBehaviour
     {
         canSpawn = false;
         onGameOverEvent?.Invoke();
+        StartCoroutine(ReturnToMainMenu());
+    }
+
+    IEnumerator ReturnToMainMenu()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(MAIN_MENU);
     }
 }
