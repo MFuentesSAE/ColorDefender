@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public List<Transform> enemySpawnPoints;
 
     [SerializeField] 
+    private TextMeshProUGUI textScore;
     public int score;
     
     [SerializeField]
@@ -34,10 +36,13 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private float enemySpawnTime, currentTime;
     private int spawnedEnemies;
-    private const string MAIN_MENU = "Scene_MainMenu";
     
     public event Action onGameOverEvent;
     public static GameManager instance; 
+    
+    private const string MAIN_MENU = "Scene_MainMenu";
+    private const string SCORE_PREFIX = "Score: ";
+    
     
     private void Awake()
     {
@@ -52,6 +57,7 @@ public class GameManager : MonoBehaviour
         RefillSpawnPointList();
         enemySpawnTime = enemySpawnSecondsRange.y;
         currentMovementTime = enemyMovementTimeRange.y;
+        textScore.text = SCORE_PREFIX + score.ToString();  
     }
     
     private void Update()
@@ -119,6 +125,12 @@ public class GameManager : MonoBehaviour
         enemy.Move(currentMovementTime);
         spawnedEnemies++;
         DecrementSpawnRate();
+    }
+
+    public void AddScore()
+    {
+        score += 1;
+        textScore.text = SCORE_PREFIX + score.ToString();
     }
 
     public void EndGame()

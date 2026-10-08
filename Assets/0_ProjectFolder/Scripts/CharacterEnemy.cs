@@ -31,7 +31,7 @@ public class CharacterEnemy : Character
         if (colorType == attackerColor)
         {
             base.Kill();
-            gameManager.score++;
+            gameManager.AddScore();
         }
     }
 
