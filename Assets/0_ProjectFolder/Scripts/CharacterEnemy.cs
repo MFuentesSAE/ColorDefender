@@ -59,7 +59,7 @@ public class CharacterEnemy : Character
 
     protected override void DeathBehavior()
     {
-        gameObject.SetActive(false);    
+        gameObject.SetActive(false);
     }
 
     public void Move(float moveTime)

@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
 
     protected Tween rotTween;
     protected float tweenTime = 0.2f;
-    protected const string IDLE = "idle";
+    protected const string IDLE = "Idle";
     protected GameManager gameManager;
 
     protected virtual void Start()

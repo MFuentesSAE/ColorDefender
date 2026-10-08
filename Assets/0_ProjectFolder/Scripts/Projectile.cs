@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
         
         this.colorType = colorType; 
         Color color = gameManager.GetColor(colorType);
-        renderer.material?.SetColor("_BaseColor", color);
+        renderer.material?.SetColor("_FresnelColor", color);
         
         if (lifetimeRoutine != null)
         {
