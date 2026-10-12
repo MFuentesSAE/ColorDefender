@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -130,18 +131,22 @@ public class GameManager : MonoBehaviour
     public void AddScore()
     {
         score += 1;
+        Monou.GameScraper.Advance(score);
         textScore.text = SCORE_PREFIX + score.ToString();
     }
 
     public void EndGame()
     {
         canSpawn = false;
+        Monou.GameScraper.Finish(score);
         onGameOverEvent?.Invoke();
         StartCoroutine(ReturnToMainMenu());
     }
 
     IEnumerator ReturnToMainMenu()
     {
+        Task async = Monou.GameScraper.Advertise();
+        yield return new WaitUntil(() => async.IsCompleted);
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(MAIN_MENU);
     }
