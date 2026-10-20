@@ -19,7 +19,7 @@ public class CharacterEnemy : Character
         }
         
         gameManager.onGameOverEvent += StopMovement;
-		explosionFX?.SetActive(true);
+		explosionFX?.SetActive(false);
 		meshRenderer.enabled = true;
 	}
 
