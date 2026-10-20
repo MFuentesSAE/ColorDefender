@@ -26,16 +26,6 @@ public class CharacterPlayer : Character
             return;
         }
 
-
-        Action actionShoot = () =>
-        {
-            Projectile projectile = Instantiate(gameManager.projectilePrefab, shootTransform.position,
-                shootTransform.rotation);
-            projectile?.Shoot(shootForce, projectileColor);
-            animator?.SetTrigger(SHOOT);
-            lastFireRate = Time.time + fireRate;
-        };
-
         if (lastRotationTarget == null || lastRotationTarget != shootPivot)
         {
             if (rotationFlag)
@@ -46,15 +36,26 @@ public class CharacterPlayer : Character
             rotationFlag = true;
             RotateCharacter(point, () =>
             {
-                actionShoot.Invoke();
+				Shoot(projectileColor);
                 lastRotationTarget = shootPivot;
                 rotationFlag = false;
             });
             return;
         }
 
-        actionShoot.Invoke();
+		Shoot(projectileColor);
     }
+
+    private void Shoot(EColorType projectileColor)
+    {
+        //Crear el proyectil
+		Projectile projectile = Instantiate(gameManager.projectilePrefab, shootTransform.position,shootTransform.rotation);
+
+        //Dispar el proyectil
+		projectile?.Shoot(shootForce, projectileColor);
+		animator?.SetTrigger(SHOOT);
+		lastFireRate = Time.time + fireRate;
+	}
 
     protected override void DeathBehavior()
     {
