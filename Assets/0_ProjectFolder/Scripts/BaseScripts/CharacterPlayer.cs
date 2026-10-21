@@ -36,17 +36,17 @@ public class CharacterPlayer : Character
             rotationFlag = true;
             RotateCharacter(point, () =>
             {
-				Shoot(projectileColor);
+				ShootProjectile(projectileColor);
                 lastRotationTarget = shootPivot;
                 rotationFlag = false;
             });
             return;
         }
 
-		Shoot(projectileColor);
+		ShootProjectile(projectileColor);
     }
 
-    private void Shoot(EColorType projectileColor)
+    private void ShootProjectile(EColorType projectileColor)
     {
         //Crear el proyectil
 		Projectile projectile = Instantiate(gameManager.projectilePrefab, shootTransform.position,shootTransform.rotation);
