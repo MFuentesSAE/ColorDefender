@@ -23,6 +23,7 @@ public class Projectile : MonoBehaviour
 
     public void Shoot(float force, EColorType colorType)
     {
+        rb.linearVelocity = Vector3.zero;
 
         if (gameManager == null)
         {
@@ -51,12 +52,14 @@ public class Projectile : MonoBehaviour
             enemy.Kill(colorType);
         }
         
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     IEnumerator LifeTimeRoutine()
     {
         yield return new WaitForSeconds(LIFETIME);
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

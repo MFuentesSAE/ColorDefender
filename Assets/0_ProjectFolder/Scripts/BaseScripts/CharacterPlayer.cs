@@ -49,10 +49,16 @@ public class CharacterPlayer : Character
     private void ShootProjectile(EColorType projectileColor)
     {
         //Crear el proyectil
-		Projectile projectile = Instantiate(gameManager.projectilePrefab, shootTransform.position,shootTransform.rotation);
+        //Projectile projectile = Instantiate(gameManager.projectilePrefab, shootTransform.position,shootTransform.rotation);
+        GameObjectPool projPool = PoolManager.instance.poolProjectile;
+        GameObject projGO = projPool.GetGameObjectFromPool(shootTransform.position, shootTransform.rotation);
+
+        Projectile projectile = projGO.GetComponent<Projectile>();
 
         //Dispar el proyectil
-		projectile?.Shoot(shootForce, projectileColor);
+        projectile?.Shoot(shootForce, projectileColor);
+
+
 		animator?.SetTrigger(SHOOT);
 		lastFireRate = Time.time + fireRate;
 	}
