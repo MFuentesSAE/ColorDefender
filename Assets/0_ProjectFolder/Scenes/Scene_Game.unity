@@ -2069,6 +2069,74 @@ MonoBehaviour:
   onFadeOutEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &710527545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 710527546}
+  - component: {fileID: 710527547}
+  m_Layer: 0
+  m_Name: SceneSoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &710527546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710527545}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &710527547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 710527545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca47479cdaee9344699c324f257d3c1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundManager
+  soundList:
+  - audioName: GameTheme
+    clip: {fileID: 8300000, guid: 80e9322effa208b4ebfe95ccb740986b, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    audioSource: {fileID: 0}
+  - audioName: Explosion
+    clip: {fileID: 8300000, guid: bb7f0489b212b9047998c27a0603cd25, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    audioSource: {fileID: 0}
+  audioToTest: GameTheme
+  pitchRangeTest: {x: 0.8, y: 1.2}
+  fadeTimeTest: 5
+  playkey: 9
+  pauseKey: 112
+  playPitch: 113
+  fadeInKey: 282
+  fadeOutKey: 283
+  randomKey: 284
 --- !u!1001 &717091092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7194,3 +7262,4 @@ SceneRoots:
   - {fileID: 2129599466}
   - {fileID: 2064856782}
   - {fileID: 2125215861}
+  - {fileID: 710527546}
