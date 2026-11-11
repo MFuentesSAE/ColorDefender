@@ -2114,17 +2114,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
   soundList:
-  - audioName: GameTheme
-    clip: {fileID: 8300000, guid: 80e9322effa208b4ebfe95ccb740986b, type: 3}
-    volume: 0.3
-    pitch: 1
-    loop: 1
+  - audioName: 1
+    clip: {fileID: 8300000, guid: bb7f0489b212b9047998c27a0603cd25, type: 3}
+    volume: 0.444
+    pitch: 1.17
+    loop: 0
     playOnAwake: 0
     audioSource: {fileID: 0}
-  - audioName: Explosion
-    clip: {fileID: 8300000, guid: bb7f0489b212b9047998c27a0603cd25, type: 3}
-    volume: 0.3
-    pitch: 1
+  - audioName: 2
+    clip: {fileID: 8300000, guid: 4a1aaca0af2b0f244bafb99eac38e8fd, type: 3}
+    volume: 0.376
+    pitch: 0.52
+    loop: 0
+    playOnAwake: 0
+    audioSource: {fileID: 0}
+  - audioName: 3
+    clip: {fileID: 8300000, guid: 70d2fd6f92413e04c8f5904cdc730716, type: 3}
+    volume: 0.36
+    pitch: 0.58
     loop: 0
     playOnAwake: 0
     audioSource: {fileID: 0}
