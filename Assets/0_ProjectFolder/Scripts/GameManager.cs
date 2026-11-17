@@ -15,14 +15,14 @@ public class GameManager : MonoBehaviour
     public CharacterEnemy enemyPrefab;
     public List<Transform> enemySpawnPoints;
 
-    [SerializeField] 
+    [SerializeField]
     private TextMeshProUGUI textScore;
     public int score;
-    
+
     [SerializeField]
     private List<Transform> availableSpawnPoints = new List<Transform>();
     private bool canSpawn = true;
-    
+
     public Vector2 enemySpawnSecondsRange;
     public int spawnDecrementFactor = 4;
     private float spawnDecrementTime = 0.25f;
@@ -30,21 +30,21 @@ public class GameManager : MonoBehaviour
     [Space(20)]
     public Vector2 enemyMovementTimeRange;
     public float movementDecrementTime = 0.3f;
-    
+
     [SerializeField]
     private float currentMovementTime;
-    
+
     [SerializeField]
     private float enemySpawnTime, currentTime;
     private int spawnedEnemies;
-    
+
     public event Action onGameOverEvent;
-    public static GameManager instance; 
-    
+    public static GameManager instance;
+
     private const string MAIN_MENU = "Scene_MainMenu";
     private const string SCORE_PREFIX = "Score: ";
-    
-    
+
+
     private void Awake()
     {
         if (instance == null)
@@ -52,22 +52,22 @@ public class GameManager : MonoBehaviour
             instance = this;
         }
     }
-    
+
     private void Start()
     {
         RefillSpawnPointList();
         enemySpawnTime = enemySpawnSecondsRange.y;
         currentMovementTime = enemyMovementTimeRange.y;
-        textScore.text = SCORE_PREFIX + score.ToString();  
+        textScore.text = SCORE_PREFIX + score.ToString();
     }
-    
+
     private void Update()
     {
         if (!canSpawn)
         {
             return;
         }
-        
+
         currentTime += Time.deltaTime;
         if (currentTime >= enemySpawnTime)
         {
@@ -103,11 +103,11 @@ public class GameManager : MonoBehaviour
         {
             case EColorType.Red:
                 return red;
-            
+
             case EColorType.Blue:
                 return blue;
         }
-        
+
         return Color.white;
     }
 
@@ -117,7 +117,7 @@ public class GameManager : MonoBehaviour
         {
             RefillSpawnPointList();
         }
-        
+
         int randomIndex = Random.Range(0, availableSpawnPoints.Count);
         Transform spawnPoint = availableSpawnPoints[randomIndex];
         availableSpawnPoints.Remove(spawnPoint);
@@ -145,8 +145,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ReturnToMainMenu()
     {
-        Task async = Monou.GameScraper.Advertise();
-        yield return new WaitUntil(() => async.IsCompleted);
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(MAIN_MENU);
     }

@@ -476,6 +476,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonouGameScraper
       objectReference: {fileID: 0}
+    - target: {fileID: 1542735599424569765, guid: 4d9e7374bbe7d41b9a0175a981f5b27d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5040298032354151764, guid: 4d9e7374bbe7d41b9a0175a981f5b27d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.04966
