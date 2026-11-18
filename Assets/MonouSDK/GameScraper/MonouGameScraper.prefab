@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5040298032354151764}
   - component: {fileID: 5045645842706828645}
-  - component: {fileID: 7439573610757577191}
   m_Layer: 0
   m_Name: MonouGameScraper
   m_TagString: Untagged
@@ -46,15 +45,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MonouKey: you-monou-code
---- !u!114 &7439573610757577191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542735599424569765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81e27610681a2054f84c8355057d70a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AdManager

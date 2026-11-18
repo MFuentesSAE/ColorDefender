@@ -15,6 +15,8 @@ public class AdManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            // El MonouGameScraper.jslib oficial envia el resultado del anuncio con SendMessage('GameScraper', ...)
+            gameObject.name = "GameScraper";
         }
     }
 

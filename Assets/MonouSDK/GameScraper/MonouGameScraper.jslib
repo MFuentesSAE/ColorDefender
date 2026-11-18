@@ -283,7 +283,7 @@ var MonouGameScraperLib = {
 		var interval = setInterval(function(){
 			if (!SharedData.waiting) return;
 			clearInterval(interval);
-			SendMessage('MonouGameScraper', 'WorkAsyncResult', taskId + "|0");
+			SendMessage('GameScraper', 'WorkAsyncResult', taskId + "|0");
 		}, 100);
 	},
 
@@ -294,7 +294,7 @@ var MonouGameScraperLib = {
 			if (!SharedData.waiting) return;
 			clearInterval(interval);
 			var v = (SharedData.waiting && SharedData.waiting.success) ? 1 : 0;
-			SendMessage('MonouGameScraper', 'WorkAsyncResult', taskId + "|" + v);
+			SendMessage('GameScraper', 'WorkAsyncResult', taskId + "|" + v);
 		}, 100);
 	},
 
@@ -305,7 +305,7 @@ var MonouGameScraperLib = {
 			if (!SharedData.waiting) return;
 			clearInterval(interval);
 			var v = (SharedData.waiting && SharedData.waiting.success) ? 1 : 0;
-			SendMessage('MonouGameScraper', 'WorkAsyncResult', taskId + "|" + v);
+			SendMessage('GameScraper', 'WorkAsyncResult', taskId + "|" + v);
 		}, 100);
 	}
 };
