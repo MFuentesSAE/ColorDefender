@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator ReturnToMainMenu()
     {
+        AdManager.instance.ToggleShowAd(true);
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(MAIN_MENU);
     }

@@ -18,7 +18,7 @@ public class AdManager : MonoBehaviour
         }
     }
 
-    void ShowAd()
+    public void ShowAd()
     {
         if (!showAd)
         {
